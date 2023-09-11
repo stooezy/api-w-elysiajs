@@ -1,7 +1,11 @@
-import { Elysia } from "elysia";
+import Elysia from "elysia";
+import { handleError } from "./lib/error";
+import { auth } from "./modules/auth";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const app = new Elysia()
+	.onError((err) => handleError(err))
+	.get("/", () => "Service Running")
+	.group("/api", (app) => app.use(auth))
+	.listen(9000);
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+console.log("Service Running");

@@ -3,13 +3,20 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "generate": "drizzle-kit generate:mysql",
+    "db:push": "drizzle-kit push:mysql"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@paralleldrive/cuid2": "^2.2.2",
+    "drizzle-orm": "^0.28.6",
+    "elysia": "latest",
+    "mysql2": "^3.6.1"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@biomejs/biome": "1.1.2",
+    "bun-types": "latest",
+    "drizzle-kit": "^0.19.13"
   },
   "module": "src/index.js"
 }
